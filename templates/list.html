@@ -1,0 +1,36 @@
+{% extends "bootstrap/base.html"%}
+
+
+{% block title %}
+<title>User Management</title>
+{% endblock %}
+
+{% block content %}
+<h1>User Management</h1>
+<a href="{{ url_for('new') }}" class="button">Enter New User</a>
+<table id="data" class="table table-striped header-fixed">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+    </thead>
+    <tbody>
+    {% for x in user %}
+
+        <tr>
+            <td>{{ x.username }}</td>
+            <td><a href="" class="button">Edit User</a></td>
+            <td><a href="" class="button">Delete User</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+
+</body>
+</html>
