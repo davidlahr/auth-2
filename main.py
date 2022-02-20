@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bootstrap import Bootstrap
+from datetime import date
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+TODAY = date.today()
 
 ########### CREATE DATABASE #########################
 
@@ -54,9 +56,13 @@ def login():
         # if password == user.password:
         if check_password_hash(user.password, password):
             login_user(user)
-            return render_template("secret.html")
+            return render_template("secret.html", today=TODAY)
 
     return render_template("login.html")
+
+@app.route('/main')
+def main():
+    return render_template('secret.html', today=TODAY)
 
 
 @app.route("/logout")
