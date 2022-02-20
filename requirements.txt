@@ -14,3 +14,5 @@ MarkupSafe==2.0.1
 SQLAlchemy==1.4.28
 visitor==0.1.3
 Werkzeug==2.0.2
+psycopg2-binary==2.9.3
+python-dotenv==0.19.2
