@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-<h1>Welcome</h1>
-<a href="{{ url_for('login') }}" class="button">Sign In</a>
+{% extends "bootstrap/base.html"%}
+{% import "bootstrap/wtf.html" as wtf%}
 
-</body>
-</html>
+{% block title %}
+
+    <title>Home</title>
+{% endblock %}
+{% block content %}
+<h1 class="container">Welcome</h1>
+<div class="container">
+
+    <form>
+         <div class="form-group">
+
+             <a href="{{ url_for('login') }}" class="button"><h3>Sign In</h3></a>
+         </div>
+    </form>
+</div>
+{% endblock %}
