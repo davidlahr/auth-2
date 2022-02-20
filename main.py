@@ -39,7 +39,7 @@ new_account = User(
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-@app.route('/favicon.ico')
+@app.route('/')
 def index():
     return render_template("index.html")
 
