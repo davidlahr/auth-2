@@ -1,14 +1,19 @@
+import os
+
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bootstrap import Bootstrap
 from datetime import date
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'Henderson2021!'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users_auth2.db'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 bootstrap = Bootstrap(app)
 
