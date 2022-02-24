@@ -58,11 +58,11 @@ def login():
     if request.method == "POST":
         username1 = request.form.get('username')
         password = request.form.get('password')
-        user = User.query.filter_by(username=username1).first()
+        userz = User.query.filter_by(username=username1).first()
 
         # if password == user.password:
-        if check_password_hash(user.password, password):
-            login_user(user)
+        if check_password_hash(userz.password, password):
+            login_user(userz)
             return render_template("secret.html", today=TODAY)
 
     return render_template("login.html")
