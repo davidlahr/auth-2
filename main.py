@@ -35,10 +35,10 @@ class User(UserMixin, db.Model):
 # db.create_all()
 
 # ADD ACCOUNT ######################################
-new_account = User(
-    id=1,
-    username='davidl',
-    password='123456')
+# new_account = User(
+#     id=1,
+#     username='davidl',
+#     password='123456')
 # db.session.add(new_account)
 # db.session.commit()
 
